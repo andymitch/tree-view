@@ -23,11 +23,6 @@ app.use(express.json());
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "client", "dist")));
 
-// Example API routes
-app.get("/api/data", (req, res) => {
-    res.json({ message: "Hello from the API!" });
-});
-
 app.get("/api/items", async (req, res) => {
     try {
         const result = await pool.query("SELECT * FROM items");
